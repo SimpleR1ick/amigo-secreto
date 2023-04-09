@@ -4,6 +4,6 @@ const pagesRouter = require("./routes/pages");
 
 app.use(pagesRouter);
 
-app.listen(80, () => {
+app.listen(process.env.PORT, () => {
     console.log("Servidor online!");
 })
