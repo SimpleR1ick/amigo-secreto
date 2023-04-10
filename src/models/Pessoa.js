@@ -1,5 +1,5 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('mysql::memory:');
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/connect");
 
 const Pessoa = sequelize.define('pessoa', {
     // Atributos do modelo
@@ -21,6 +21,11 @@ const Pessoa = sequelize.define('pessoa', {
         allowNull: false,
         unique: true
     }
+},
+{
+    freezeTableName: true, // Previne de pluralizar os nomes
+    timestamps: false,
+    underscored: true,
 });
 
 module.exports = Pessoa;
