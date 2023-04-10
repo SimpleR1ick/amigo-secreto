@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const path = require("path");
 
 // Paths
-var views  = path.join(__dirname, '../views')
-var layout = path.join(__dirname, '../views/pages/layouts/layout')
+var views  = path.join(__dirname, '../resources/views')
+var layout = path.join(__dirname, '../resources/views/layouts/page')
 var public = path.join(__dirname, '../public')
 
 // Carregando variaveis de ambiente

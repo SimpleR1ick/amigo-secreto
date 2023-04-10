@@ -1,13 +1,13 @@
 const Pessoa = require("../models/Pessoa");
 
 exports.getHome = (req, res, next) => {
-    res.render("pages/home", {
+    res.render("home", {
         title: "Home",
     })
 }
 
 exports.getForm = (req, res, next) => {
-    res.render("pages/form", {
+    res.render("form", {
         title: "Formulario"
     })
 }

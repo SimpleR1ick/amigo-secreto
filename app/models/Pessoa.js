@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../config/connect");
+const sequelize = require("../utils/connect");
 
 const Pessoa = sequelize.define('pessoa', {
     // Atributos do modelo

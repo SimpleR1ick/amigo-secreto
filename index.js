@@ -1,4 +1,4 @@
-var app = require('./config/server');
+var app = require('./config/app');
 
 const pagesRouter = require("./routes/pages");
 
