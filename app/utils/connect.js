@@ -7,7 +7,7 @@ var dbPass = process.env.DB_PASS;
 
 const sequilize = new Sequelize(dbName, dbUser, dbPass, {
     host: dbHost,
-    dialect: "mysql"
+    dialect: "postgres"
 })
 
 module.exports = sequilize;

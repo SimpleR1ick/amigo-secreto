@@ -1,8 +1,8 @@
 const Pessoa = require("../models/Pessoa");
 
-exports.getHome = (req, res, next) => {
-    res.render("home", {
-        title: "Home",
+exports.index = (req, res, next) => {
+    res.status(200).render("home", {
+        title: "Home"  
     })
 }
 

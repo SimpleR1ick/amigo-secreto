@@ -1,0 +1,20 @@
+extends layouts/page
+
+block content 
+    .container 
+        .row.aling-items-end 
+        form(class="row align-items-end")
+            .col-3.mb-3 
+                label(for="nome", class="form-label") None
+                input(type="text", class="form-control", name="nome", id="none") 
+
+            .col-3.mb-3 
+                label(for="sobrenome", class="form-label") Sobrenome 
+                input(type="text", class="form-control", name="sobrenome", id="sobrenome")
+
+            .col-3.mb-3
+                label(for="email", class="form-label")  E-mail 
+                input(type="email", class="form-control", name="email", id="email")
+
+            .col-3.mb-3 
+                button(type="submit", class="btn btn-primary") Submit
