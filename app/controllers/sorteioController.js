@@ -1,9 +1,9 @@
 exports.index = (req, res, next) => {
     dados = {
+        text: "NOVO SORTEIO",
+        btn_text: "< Meus sorteios",
+        btn_link: "/",
         email: 'stevegames04@gmail.com',
-        texto: "NOVO SORTEIO",
-        texto_botao: "< Meus sorteios",
-        link_botao: "/"
     }
 
     res.render("sorteio", {

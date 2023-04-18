@@ -1,6 +1,5 @@
 const express = require("express");
 const bodyParser = require('body-parser');
-
 const path = require("path");
 
 // Carregando variaveis de ambiente
@@ -14,6 +13,7 @@ app.set('views', path.join(__dirname, '../resources/views/'));
 
 app.use(express.static(path.join(__dirname, '../public/images')));
 app.use(express.static(path.join(__dirname, '../resources/css')));
+app.use(express.static(path.join(__dirname, '../resources/js')));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 

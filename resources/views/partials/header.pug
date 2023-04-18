@@ -1,22 +1,22 @@
 header 
-    .container
+    .container.p-1
         .row.justify-content-center
-            .col-4
+            .col-1
                 figure 
                     img(class="img-fluid img-logo rounded float-end", src="presente.jpg")
 
-            .col-8
+            .col-11
                 h1 Sorteio Amigo Secreto
 
-        .row.justify-content-center
+        .row.justify-content-center.mt-3
             .col-2
-                a(class="btn btn-primary", href="/sorteio") + Sorteio
+                a(class="btn btn-primary", href=dados.btn_link) #{dados.btn_text}
+                
+            .col-3.offset-3
+                h4 #{dados.text}
 
-            .col-3.offset-2
-                h4 MEUS SORTEIOS
+            .col-3.text-end
+                small #{dados.email}
 
-            .col-2
-                small email
-
-            .col-1
+            .col-1.b
                 button(type="button", class="btn btn-primary") Sair
