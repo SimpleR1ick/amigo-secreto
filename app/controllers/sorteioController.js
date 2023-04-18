@@ -1,5 +1,5 @@
 exports.index = (req, res, next) => {
-    dados = {
+    var dados = {
         text: "NOVO SORTEIO",
         icon: "fa-solid fa-less-than",
         btn_text: "Meus sorteios",
@@ -10,5 +10,11 @@ exports.index = (req, res, next) => {
     res.render("sorteio", {
         title: "Criar Sorteio",
         dados
+    })
+}
+
+exports.form = (req, res, next) => {
+    res.render("form", {
+        title: "Formulario",
     })
 }

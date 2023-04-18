@@ -28,4 +28,11 @@ const Pessoa = sequelize.define('pessoa', {
     underscored: true,
 });
 
+Pessoa.findById = function(id) {
+    return Pessoa.findOne({
+        where: {
+            id_pessoa: id}
+    });
+};
+
 module.exports = Pessoa;

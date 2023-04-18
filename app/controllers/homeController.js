@@ -1,35 +1,21 @@
 const Pessoa = require("../models/Pessoa");
 
-exports.index = (req, res, next) => {
-    const dados = {
+exports.index = async (req, res, next) => {
+    // Buscando o usuario
+    obPessoa = await Pessoa.findById(2);
+
+    // Variaveis da view
+    var dados = {
         text: "MEUS SORTEIOS",
         icon: "fa-solid fa-plus",
-        btn_text: "Sorteio",
+        btn_text: "Novo Sorteio",
         btn_link: "/sorteio",
-        email: "stevegames04@gmail.com"
+        email: "stevegames04@gmail.com",
+        obPessoa
     } 
-
+    // Retornando uma resposta
     res.status(200).render("home", {
         title: "Sorteios",
         dados  
     })
-}
-
-exports.getForm = (req, res, next) => {
-    res.render("form", {
-        title: "Formulario"
-    })
-}
-
-exports.setForm = async (req, res, next) => {
-    post = req.body
-
-    var pessoa = Pessoa.build({
-        nome: post.nome,
-        sobrenome: post.sobrenome,
-        email: post.email,
-    });
-    await pessoa.save()
-
-    res.redirect('/?status=' + 'sucess');
 }

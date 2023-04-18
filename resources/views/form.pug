@@ -1,0 +1,62 @@
+extends layouts/form
+
+block content
+
+    form(action="#" class="form")
+
+        h1.text-center SingUp
+
+        //- Progress bar
+        .progressbar
+            .progress#progress
+            .progress-step.active(data-title="Name")
+            .progress-step(data-title="Contact")
+            .progress-step(data-title="ID")
+            .progress-step(data-title="Password")
+
+        //- Primeira etapa
+        .form-step.active
+            .input-group
+                label(for="username") First name
+                input(type="text" name="username" id="username")
+            .input-group
+                label(for="lastname") Last name
+                input(type="text" name="lastname" id="lastname")
+            div
+                a.btn.btn-next.with-50.ml-auto(href="#") Next
+
+        //- Segunda etapa
+        .form-step
+            .input-group
+                label(for="phone") Phone
+                input(type="text" name="phone" id="phone")
+            .input-group
+                label(for="email") E-mail
+                input(type="email" name="email" id="email")
+            .btns-group
+                a.btn.btn-pre(href="#") Previous
+                a.btn.btn-next(href="#") Next
+
+        //- Terceira etapa
+        .form-step
+            .input-group
+                label(for="dob") Date of Birth
+                input(type="date" name="dob" id="dob")
+            .input-group
+                label(for="id") Number ID
+                input(type="number" name="id" id="id")
+            .btns-group
+                a.btn.btn-pre(href="#") Previous
+                a.btn.btn-next(href="#") Next
+
+        //- Ultima etapa
+        .form-step
+            .input-group
+                label(for="password") Password
+                input(type="password" name="password" id="password")
+            .input-group
+                label(for="confirm_password") Confirm Password
+                input(type="password" name="confirm_password" id="confirm_password")
+            .btns-group
+                a.btn.btn-pre(href="#") Previous
+                input.btn(type="submit" value="Submit")

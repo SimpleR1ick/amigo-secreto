@@ -1,12 +1,14 @@
 const express = require("express");
 
-const homeController = require("../app/controllers/homeController");
-const sorteioController = require("../app/controllers/sorteioController");
+const HomeController = require("../app/controllers/homeController");
+const SorteioController = require("../app/controllers/sorteioController");
 
 const router = express.Router();
 
-router.get("/", homeController.index);
+router.get("/", HomeController.index);
 
-router.get("/sorteio", sorteioController.index);
+router.get("/sorteio", SorteioController.index);
+
+router.get("/sorteio2", SorteioController.form);
 
 module.exports = router
