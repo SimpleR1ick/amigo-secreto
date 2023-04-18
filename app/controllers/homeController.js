@@ -3,7 +3,8 @@ const Pessoa = require("../models/Pessoa");
 exports.index = (req, res, next) => {
     const dados = {
         text: "MEUS SORTEIOS",
-        btn_text: "+ Sorteio",
+        icon: "fa-solid fa-plus",
+        btn_text: "Sorteio",
         btn_link: "/sorteio",
         email: "stevegames04@gmail.com"
     } 

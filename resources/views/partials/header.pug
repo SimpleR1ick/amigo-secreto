@@ -10,7 +10,9 @@ header
 
         .row.justify-content-center.mt-3
             .col-2
-                a(class="btn btn-primary", href=dados.btn_link) #{dados.btn_text}
+                a(class="btn btn-primary", href=dados.btn_link) 
+                    i(class=dados.icon)
+                    |  #{dados.btn_text}
                 
             .col-3.offset-3
                 h4 #{dados.text}
