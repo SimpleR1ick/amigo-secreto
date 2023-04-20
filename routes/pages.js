@@ -5,10 +5,11 @@ const SorteioController = require("../app/controllers/sorteioController");
 
 const router = express.Router();
 
-router.get("/", HomeController.index);
+router.get("/", HomeController.getHomePage);
 
-router.get("/sorteio", SorteioController.index);
 
-router.get("/sorteio2", SorteioController.form);
+router.get("/sorteio", SorteioController.getSorteioPage);
+
+router.post("/sorteio/nome", SorteioController.setSorteioNome);
 
 module.exports = router

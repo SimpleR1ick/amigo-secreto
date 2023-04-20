@@ -1,4 +1,4 @@
-exports.index = (req, res, next) => {
+exports.getSorteioPage = (req, res, next) => {
     var dados = {
         text: "NOVO SORTEIO",
         icon: "fa-solid fa-less-than",
@@ -13,8 +13,8 @@ exports.index = (req, res, next) => {
     })
 }
 
-exports.form = (req, res, next) => {
-    res.render("form", {
-        title: "Formulario",
-    })
+exports.setSorteioNome = (req, res, next) => {
+    var dados = req.body;
+
+    res.send(dados);
 }

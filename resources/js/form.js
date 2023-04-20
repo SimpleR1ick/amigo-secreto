@@ -1,50 +1,121 @@
-const prev8tns = document.querySelectorAll('.btn-pre');
-const next8tns = document.querySelectorAll(('.btn-next'));
+$(document).ready(function () {
+    var atual, proximo, anterior; //fieldsets
+    var opacity;
+    var progresso = 1;
+    var etapas = $("fieldset").length;
 
-const progress = document.getElementById('progress');
+    setProgressBar(progresso);
 
-const formSteps = document.querySelectorAll('.form-step');
+    /**
+     * Função para atualizar a barra de progresso
+     * @param {int} etapa_atual 
+     */
+    function setProgressBar(etapa_atual) {
+        var porcentagem = parseFloat(100 / etapas) * etapa_atual;
+        porcentagem = porcentagem.toFixed();
 
-const progressSteps = document.querySelectorAll('.progress-step');
+        $(".progress-bar").css("width", porcentagem + "%")
+    }
 
-let formStepsNum = 0;
+    /**
+     * Evento click do botão "proximo"
+     */
+    $(".next").click(function () {
 
-// Clicks next
-next8tns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        formStepsNum++;
-        updateFormStep(); 
-        updateProgressBar();
+        atual = $(this).parent();
+        proximo = $(this).parent().next();
+
+        //Add Class Active
+        $("#progressbar li").eq($("fieldset").index(proximo)).addClass("active");
+
+        // Mostra a proximo fieldset
+        proximo.show();
+
+        // Esconde o atual fieldset com CSS
+        atual.animate({ opacity: 0 }, {
+            step: function (now) {
+                opacity = 1 - now;
+
+                atual.css({
+                    'display': 'none',
+                    'position': 'relative'
+                });
+                proximo.css({
+                    'opacity': opacity
+                });
+            },
+            duration: 500
+        });
+        setProgressBar(++progresso);
     });
-})
 
-// Clicks previous
-prev8tns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        formStepsNum--;
-        updateFormStep(); 
-        updateProgressBar();
+    /**
+     * Evento click do botão "anterior"
+     */
+    $(".previous").click(function () {
+
+        atual = $(this).parent();
+        anterior = $(this).parent().prev();
+
+        // Remove a classe ativo
+        $("#progressbar li").eq($("fieldset").index(atual)).removeClass("active");
+
+        // Mostra o fieldset anterior
+        anterior.show();
+
+        // Esconde o fieldset atual com css
+        atual.animate({ opacity: 0 }, {
+            step: function (now) {
+                opacity = 1 - now;
+
+                atual.css({
+                    'display': 'none',
+                    'position': 'relative'
+                });
+                anterior.css({ 'opacity': opacity });
+            },
+            duration: 500
+        });
+        setProgressBar(--progresso);
     });
-})
 
+    $("#adicionar").click(function () {
+        const nome = $("#nome").val();
+        const sobrenome = $("#sobrenome").val();
+        const email = $("#email").val();
 
-function updateFormStep() {
-    formSteps.forEach(formStep => {
-        formStep.classList.contains('active') && formStep.classList.remove('active')
+        console.log("Ola mundo!", nome, sobrenome, email);
     });
-    formSteps[formStepsNum].classList.add('active')
-}
 
-function updateProgressBar() {
-    progressSteps.forEach((progressStep, idx) => {
-        if (idx < formStepsNum + 1) {
-            progressStep.classList.add('active')
+
+    $(".submit").click(function () {
+        return false;
+    })
+
+    // Obtém todos os elementos input do formulário
+    const inputs = $('#nome, #sobrenome, #email');
+
+    // Obtém o botão "Adicionar"
+    const btnAdicionar = $('#adicionar');
+
+    // Adiciona o ouvinte de eventos "input" a cada elemento input
+    inputs.on('input', verificarCampos);
+
+    // Define a função que verifica se todos os campos foram preenchidos
+    function verificarCampos() {
+        let camposPreenchidos = true;
+
+        // Verifica cada elemento input
+        inputs.each(function () {
+            if (!$(this).val()) {
+                camposPreenchidos = false;
+            }
+        });
+        // Se todos os campos estiverem preenchidos, remove o atributo "disabled" do botão "Adicionar"
+        if (camposPreenchidos) {
+            btnAdicionar.removeAttr('disabled');
         } else {
-            progressStep.classList.remove('active')
+            btnAdicionar.attr('disabled', '');
         }
-    });
-
-    const progressActive = document.querySelectorAll('.progress-step.active');
-
-    progress.style.width = (progressActive.length -1) / (progressSteps.length -1) * 100 + '%'
-}
+    }
+});

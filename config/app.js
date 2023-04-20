@@ -15,6 +15,9 @@ app.use(express.static(path.join(__dirname, '../public/images')));
 app.use(express.static(path.join(__dirname, '../resources/css')));
 app.use(express.static(path.join(__dirname, '../resources/js')));
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json() );
+app.use(bodyParser.urlencoded({ 
+    extended: true 
+}));
 
 module.exports = app;

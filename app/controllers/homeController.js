@@ -1,6 +1,6 @@
 const Pessoa = require("../models/Pessoa");
 
-exports.index = async (req, res, next) => {
+exports.getHomePage = async (req, res, next) => {
     // Buscando o usuario
     obPessoa = await Pessoa.findById(2);
 
