@@ -1,10 +1,14 @@
-var app = require('./config/app');
+const app = require('./config/app');
 
-var port = process.env.PORT || 80
+const port = process.env.PORT || 80
 
-const pagesRouter = require("./routes/pages");
+const homeRouter = require("./routes/home");
+const loginRouter = require("./routes/login");
+const sorteioRouter = require("./routes/sorteio");
 
-app.use(pagesRouter);
+app.use(homeRouter);
+app.use(loginRouter);
+app.use(sorteioRouter);
 
 app.listen(port, () => {
     console.log(`Listening to requests on http://localhost:${port}`);

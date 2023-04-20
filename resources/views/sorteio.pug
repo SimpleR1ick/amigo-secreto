@@ -6,28 +6,28 @@ block content
 
     script(src="form.js" defer) 
 
-    .container
-        .row.justify-content-center
-            .col-8.text-center.p-0.mt-3.mb-2
+    div.container
+        div.row.justify-content-center
+            div.col-8.text-center.p-0.mt-3.mb-2
                 //-.card.px-0.pt-4.pb-0.mt-3.mb-3
                 ul#progressbar
                     li#raffle_name.active: strong Nome
                     li#participants: strong Integrantes
                     li#restriction: strong Restrições
                     li#start_raffle: strong Sortear
-    .container
+    div.container
         fieldset
             form(action="/sorteio/nome", method="post") 
                 
-                .row.text-start 
-                    .col-7
+                div.row.text-start 
+                    div.col-7
                         h2.fs-title Nome do sorteio:
-                    .col-5
+                    div.col-5
                         h2.steps Etapa 1 - 4
-                .row.justify-content-center
-                    .col-6
+                div.row.justify-content-center
+                    div.col-6
                         label.form-label(for="nome") Escolha um nome para o sorteio
-                        .input-group 
+                        div.input-group 
                             input#nome.form-control(type="text" name="nome")
                             button.btn.btn-primary(type="submit") Ok!
             
@@ -36,25 +36,25 @@ block content
 
         fieldset 
             form(action="", method="post") 
-                .row.text-start  
-                    .col-7
+                div.row.text-start  
+                    div.col-7
                         h2.fs-title Adicionar participantes:
-                    .col-5
+                    div.col-5
                         h2.steps Etapa 2 - 4
-                .row.align-items-end 
-                    .col-3.mb-3 
+                div.row.align-items-end 
+                    div.col-3.mb-3 
                         label.form-label(for="nome") Nome
                         input.form-control#nome(type="text" required)
 
-                    .col-3.mb-3 
+                    div.col-3.mb-3 
                         label.form-label(for="sobrenome") Sobrenome
                         input.form-control#sobrenome(type="text" required)
 
-                    .col-4.mb-3 
+                    div.col-4.mb-3 
                         label.form-label(for="email") Email
                         input.form-control#email(type="email" required)
 
-                    .col-2.mb-3.text-end 
+                    div.col-2.mb-3.text-end 
                         button.btn.btn-primary#adicionar(disabled)
                             i.fa-solid.fa-plus
                             |  Adicionar!
@@ -64,24 +64,24 @@ block content
 
         fieldset 
         
-            .row.text-start 
-                .col-7
+            div.row.text-start 
+                div.col-7
                     h2.fs-title Filtros de sorteio:
-                .col-5
+                div.col-5
                     h2.steps Etapa 3 - 4
-            .text-center
+            div.text-center
                 a(class="btn btn-primary") Criar Grupo
 
             button.next.btn.btn-primary.float-end.mt-3(type='button' name='next') Proximo
             button.previous.btn.btn-secondary.float-start.mt-3(type='button' name='previous') Anterior
 
         fieldset 
-            .row.text-start
-                .col-7
+            div.row.text-start
+                div.col-7
                     h2.fs-title Iniciar sorteio:
-                .col-5
+                div.col-5
                     h2.steps Etapa 4 - 4
-            .text-center
+            div.text-center
                 a(class="btn btn-primary") Sortear
 
             button.next.btn.btn-primary.float-end.mt-3(type="submit" name='next') Enviar

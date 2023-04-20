@@ -1,11 +1,21 @@
 const express = require("express");
+const session = require("express-session");
 const bodyParser = require('body-parser');
 const path = require("path");
+
+const app = express();
 
 // Carregando variaveis de ambiente
 require("dotenv").config();
 
-const app = express();
+app.use(session({
+    secret: process.env.KEY,
+    saveUninitialized: true,
+    resave: false,
+    cookie: { 
+        secure: true 
+    }
+}));
 
 // View engine
 app.set('view engine', 'pug');
