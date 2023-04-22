@@ -1,0 +1,41 @@
+extends layouts/register
+
+block content  
+    form.container(action="/cadastro" method="post")
+        div.row.justify-content-center 
+            div.col-6
+                if message
+                    div.alert.alert-danger(role="alert")
+                        p #{message} 
+
+                // Email input
+                div.form-outline.mb-4
+                    label.form-label(for="nome") Nome
+                    input#nome.form-control(type="text" name="nome")
+
+                div.form-outline.mb-4
+                    label.form-label(for="sobrenome") Sobrenome
+                    input#sobrenome.form-control(type="text" name="sobrenome")
+
+                // Email input
+                div.form-outline.mb-4
+                    label.form-label(for="email") Email
+                    input#email.form-control(type="email" name="email")
+                    
+                // Password input
+                div.form-outline.mb-4
+                    label.form-label(for="senha") Senha
+                    input#senha.form-control(type="password" name="senha")
+
+                // Password input
+                div.form-outline.mb-4
+                    label.form-label(for="confirma") Confirmar senha
+                    input#confirma.form-control(type="password" name="confirma")
+
+                // Submit button
+                button.btn.btn-primary.btn-block.mb-4(type="submit") Cadastar
+
+                // Register buttons
+                div.text-center
+                    p Já é usuario? 
+                        a(href="/login") Login

@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../utils/connect");
+const sequelize = require("../Utils/Connect");
 
 const Pessoa = sequelize.define('pessoa', {
     // Atributos do modelo
@@ -32,6 +32,14 @@ Pessoa.findById = function(id) {
     return Pessoa.findOne({
         where: {
             id_pessoa: id}
+    });
+};
+
+Pessoa.findByEmail = function(email) {
+    return Pessoa.findOne({
+        where: {
+            email: email
+        }
     });
 };
 

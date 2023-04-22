@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const SorteioController = require("../app/controllers/sorteioController");
+const SorteioController = require("../app/Controllers/sorteioController");
 
 router.get("/sorteio", SorteioController.getSorteioPage);
 

@@ -14,7 +14,7 @@ exports.getSorteioPage = (req, res, next) => {
 }
 
 exports.setSorteioNome = (req, res, next) => {
-    var dados = req.body;
+    const postParams = req.body;
 
     res.send(dados);
 }
