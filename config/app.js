@@ -13,9 +13,8 @@ const app = express();
 // Session
 app.use(session({
     secret: process.env.KEY,
-    saveUninitialized: true,
-    cookie: { secure: true },
-    resave: false
+    resave: false,
+    saveUninitialized: false,
 }));
 
 // View engine

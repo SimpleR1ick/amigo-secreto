@@ -4,6 +4,10 @@ block content
     form.container(action="/login" method="post")
         div.row.justify-content-center 
             div.col-6
+                if message
+                    div.alert.alert-danger(role="alert")
+                        p #{message} 
+
                 // Email input
                 div.form-outline.mb-4
                     label.form-label(for="email") Email

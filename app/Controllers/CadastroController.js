@@ -1,4 +1,5 @@
-const Pessoa = require("../models/Pessoa");
+const Pessoa = require("../Models/Pessoa");
+const Crypt = require("../Utils/Crypt");
 
 exports.getPageCadastro = (req, res, next) => {
     res.render("cadastro", {
@@ -7,44 +8,37 @@ exports.getPageCadastro = (req, res, next) => {
 }
 
 exports.setCadastroForm = async (req, res, next) => {
-    // Recuperando os dados do formulario
     const {nome, sobrenome, email, senha, confirma} = req.body
 
     // Verificando se o email esta disponivel
-    var result = Pessoa.count({
-        where: {
-            email: email
-        }
-    })
+    const result = await Pessoa.findByEmail(email);
+
     // Verifica se o e-mail esta disponivel
-    if (! result === null) {
-        redirect(res, "Usuario ja cadastrado")
+    if (result) {
+        res.render("cadastro", {
+            title: "Cadastro",
+            message: "Usuario ja cadastrado"
+        });
     }
     // Verifica se a senha são iguais
     if (senha != confirma) {
-        redirect(res, "Senha não coincide");
+        res.render("cadastro", {
+            title: "Cadastro",
+            message: "Senha não coincide"
+        });
     }
+    // Criptografando a senha
+    hash = await Crypt.hash(senha);
+
     // Instancia de pessoa
     const pessoa = Pessoa.build({
         nome: nome,
         sobrenome: sobrenome,
         email: email,
+        senha: hash
     });
-    // Cadastrando usuario no banco
     await pessoa.save()
 
     // Redirecionando para pagina de login
     res.redirect("/login")
-}
-
-/**
- * Função para redirecionar com menssagem
- * @param {request} res 
- * @param {string} message 
- */
-function redirect(res, message) {
-    res.render("cadastro", {
-        title: "Cadastro",
-        message: message
-    });
 }

@@ -8,14 +8,16 @@ block content
                     div.alert.alert-danger(role="alert")
                         p #{message} 
 
-                // Email input
-                div.form-outline.mb-4
-                    label.form-label(for="nome") Nome
-                    input#nome.form-control(type="text" name="nome")
+                div.row
 
-                div.form-outline.mb-4
-                    label.form-label(for="sobrenome") Sobrenome
-                    input#sobrenome.form-control(type="text" name="sobrenome")
+                    // Nome
+                    div.col-6.form-outline.mb-4
+                        label.form-label(for="nome") Nome
+                        input#nome.form-control(type="text" name="nome")
+                    // Sobrenome
+                    div.col-6.form-outline.mb-4
+                        label.form-label(for="sobrenome") Sobrenome
+                        input#sobrenome.form-control(type="text" name="sobrenome")
 
                 // Email input
                 div.form-outline.mb-4

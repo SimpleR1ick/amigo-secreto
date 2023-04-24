@@ -20,7 +20,11 @@ const Pessoa = sequelize.define('pessoa', {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true
-    }
+    },
+    senha: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
 },
 {
     freezeTableName: true, // Previne de pluralizar os nomes

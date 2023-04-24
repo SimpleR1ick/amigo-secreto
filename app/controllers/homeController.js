@@ -1,8 +1,8 @@
-const Pessoa = require("../models/Pessoa");
+const Pessoa = require("../Models/Pessoa");
 
 exports.getHomePage = async (req, res, next) => {
     // Buscando o usuario
-    pessoa = await Pessoa.findById(2);
+    pessoa = await Pessoa.findById(req.session.idUsuario);
 
     // Variaveis da view
     var dados = {
