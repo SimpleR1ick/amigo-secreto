@@ -37,10 +37,12 @@ exports.setLoginForm = async (req, res, next) => {
     res.redirect("/");
 }
 
-exports.setLogout = (res, req, next) => {
-    req.session.destroy();
-
-    res.clearCookie('session');
-
-    res.redirect("/login")
+exports.setLogout = (req, res, next) => {
+    req.session.destroy(function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect('/');
+        }
+    });
 }

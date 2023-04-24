@@ -14,7 +14,7 @@ const app = express();
 app.use(session({
     secret: process.env.KEY,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
 }));
 
 // View engine

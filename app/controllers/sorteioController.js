@@ -1,20 +1,26 @@
-exports.getSorteioPage = (req, res, next) => {
-    var dados = {
-        text: "NOVO SORTEIO",
-        icon: "fa-solid fa-less-than",
-        btn_text: "Meus sorteios",
-        btn_link: "/",
-        email: 'stevegames04@gmail.com',
-    }
+const Pessoa = require("../Models/Pessoa");
+
+const header = {
+    text: "Meus sorteios",
+    link: "/",
+    page: "NOVO SORTEIO",
+    icon: "fa-solid fa-less-than"
+};
+
+
+exports.getSorteioPage = async (req, res, next) => {
+    // Buscando o usuario
+    const pessoa = await Pessoa.findById(req.session.idUsuario);
 
     res.render("sorteio", {
         title: "Criar Sorteio",
-        dados
-    })
+        header,
+        pessoa
+    });
 }
 
 exports.setSorteioNome = (req, res, next) => {
-    const postParams = req.body;
+    const dados = req.body;
 
     res.send(dados);
 }

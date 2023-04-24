@@ -8,17 +8,18 @@ header
             .col-11
                 h1 Sorteio Amigo Secreto
 
-        .row.justify-content-center.mt-3
-            .col-2
-                a(class="btn btn-primary", href=dados.btn_link) 
-                    i(class=dados.icon)
-                    |  #{dados.btn_text}
-                
-            .col-3.offset-3
-                h4 #{dados.text}
+        if header
+            .row.justify-content-center.mt-3
+                .col-2
+                    a(class="btn btn-primary", href=header.link) 
+                        i(class=header.icon)
+                        | #{header.text}
 
-            .col-3.text-end
-                small #{dados.email}
+                .col-3.offset-3
+                    h4 #{header.page}
+                    
+                .col-3.text-end
+                    small #{pessoa.email}
+                .col-1.b
+                    a(href="/logout", class="btn btn-primary") Sair
 
-            .col-1.b
-                a(href="/logout", class="btn btn-primary") Sair

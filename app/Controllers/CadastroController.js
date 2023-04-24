@@ -28,7 +28,7 @@ exports.setCadastroForm = async (req, res, next) => {
         });
     }
     // Criptografando a senha
-    hash = await Crypt.hash(senha);
+    var hash = await Crypt.hash(senha);
 
     // Instancia de pessoa
     const pessoa = Pessoa.build({
