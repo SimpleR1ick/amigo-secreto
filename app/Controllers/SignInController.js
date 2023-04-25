@@ -1,13 +1,13 @@
 const Pessoa = require("../Models/Pessoa");
 const Crypt = require("../Utils/Crypt");
 
-exports.getLoginPage = (req, res, next) => {
+exports.index = (req, res, next) => {
     res.render("login", {
         title: "Login",
     });
 }
 
-exports.setLoginForm = async (req, res, next) => {
+exports.signIn = async (req, res, next) => {
     const { email, senha } = req.body;
 
     // Buscando a pessoal pelo email
@@ -37,7 +37,7 @@ exports.setLoginForm = async (req, res, next) => {
     res.redirect("/");
 }
 
-exports.setLogout = (req, res, next) => {
+exports.signOut = (req, res, next) => {
     req.session.destroy(function (err) {
         if (err) {
             console.log(err);

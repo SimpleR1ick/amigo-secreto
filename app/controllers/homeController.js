@@ -7,7 +7,7 @@ const header = {
     icon: "fa-solid fa-plus"
 };
 
-exports.getHomePage = async (req, res, next) => {
+exports.index = async (req, res, next) => {
     // Buscando o usuario
     const pessoa = await Pessoa.findById(req.session.idUsuario);
 

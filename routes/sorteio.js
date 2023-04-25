@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const SorteioController = require("../app/Controllers/sorteioController");
+const SorteioController = require("../app/Controllers/SorteioController");
 
-router.get("/sorteio", SorteioController.getSorteioPage);
+// Rota pagina Sorteio
+router.get("/sorteio", SorteioController.index);
 
 router.post("/sorteio/nome", SorteioController.setSorteioNome);
 

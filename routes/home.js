@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
 
-// Midleware
-const Auth = require("../app/Middlewares/Auth");
-
 const HomeController = require("../app/Controllers/HomeController");
 
-router.get("/", Auth.login, HomeController.getHomePage);
+// Midleware
+const { login } = require("../app/Middlewares/Auth");
+
+// Rota pagina Home
+router.get("/", login, HomeController.index);
 
 module.exports = router;

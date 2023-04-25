@@ -1,13 +1,13 @@
 const Pessoa = require("../Models/Pessoa");
 const Crypt = require("../Utils/Crypt");
 
-exports.getPageCadastro = (req, res, next) => {
+exports.index = (req, res, next) => {
     res.render("cadastro", {
         title: "Cadastro"
     });
 }
 
-exports.setCadastroForm = async (req, res, next) => {
+exports.signUp = async (req, res, next) => {
     const {nome, sobrenome, email, senha, confirma} = req.body
 
     // Verificando se o email esta disponivel

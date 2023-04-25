@@ -8,7 +8,7 @@ const header = {
 };
 
 
-exports.getSorteioPage = async (req, res, next) => {
+exports.index = async (req, res, next) => {
     // Buscando o usuario
     const pessoa = await Pessoa.findById(req.session.idUsuario);
 
