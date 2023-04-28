@@ -1,7 +1,9 @@
 extends layouts/register
 
 block content  
-    form.container(action="/login" method="post")
+    h1.text-center.mt-5 Login
+
+    form.container.mt-5(action="/login" method="post")
         div.row.justify-content-center 
             div.col-6
                 if message
@@ -20,13 +22,6 @@ block content
 
                 // 2 column grid layout for inline styling
                 div.row.mb-4
-                    div.col.d-flex.justify-content-center
-                    // Checkbox
-                    div.form-check
-                        input.form-check-input(type="checkbox", value="", id="form2Example31", checked)
-                        label.form-check-label(for="form2Example31") Lembre de mim
-                    div.col
-                    // Simple link
                     a(href="/recuperar") Esqueceu a senha?
 
                 // Submit button

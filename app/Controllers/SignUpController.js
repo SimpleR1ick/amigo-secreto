@@ -2,7 +2,7 @@ const Pessoa = require("../Models/Pessoa");
 const Crypt = require("../Utils/Crypt");
 
 exports.index = (req, res, next) => {
-    res.render("cadastro", {
+    res.render("sign_up", {
         title: "Cadastro"
     });
 }
@@ -15,14 +15,14 @@ exports.signUp = async (req, res, next) => {
 
     // Verifica se o e-mail esta disponivel
     if (result) {
-        res.render("cadastro", {
+        res.render("sign_up", {
             title: "Cadastro",
             message: "Usuario ja cadastrado"
         });
     }
     // Verifica se a senha são iguais
     if (senha != confirma) {
-        res.render("cadastro", {
+        res.render("sign_up", {
             title: "Cadastro",
             message: "Senha não coincide"
         });

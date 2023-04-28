@@ -4,13 +4,11 @@ $(document).ready(function () {
     var progresso = 1;
     var etapas = $("fieldset").length;
 
-    setProgressBar(progresso);
-
     /**
      * Função para atualizar a barra de progresso
      * @param {int} etapa_atual 
      */
-    function setProgressBar(etapa_atual) {
+    $.setProgressBar = function(etapa_atual) {
         var porcentagem = parseFloat(100 / etapas) * etapa_atual;
         porcentagem = porcentagem.toFixed();
 
@@ -79,43 +77,6 @@ $(document).ready(function () {
         setProgressBar(--progresso);
     });
 
-    $("#adicionar").click(function () {
-        const nome = $("#nome").val();
-        const sobrenome = $("#sobrenome").val();
-        const email = $("#email").val();
-
-        console.log("Ola mundo!", nome, sobrenome, email);
-    });
-
-
-    $(".submit").click(function () {
-        return false;
-    })
-
-    // Obtém todos os elementos input do formulário
-    const inputs = $('#nome, #sobrenome, #email');
-
-    // Obtém o botão "Adicionar"
-    const btnAdicionar = $('#adicionar');
-
-    // Adiciona o ouvinte de eventos "input" a cada elemento input
-    inputs.on('input', verificarCampos);
-
-    // Define a função que verifica se todos os campos foram preenchidos
-    function verificarCampos() {
-        let camposPreenchidos = true;
-
-        // Verifica cada elemento input
-        inputs.each(function () {
-            if (!$(this).val()) {
-                camposPreenchidos = false;
-            }
-        });
-        // Se todos os campos estiverem preenchidos, remove o atributo "disabled" do botão "Adicionar"
-        if (camposPreenchidos) {
-            btnAdicionar.removeAttr('disabled');
-        } else {
-            btnAdicionar.attr('disabled', '');
-        }
-    }
+    // Chamda da função
+    $.setProgressBar(progresso);
 });

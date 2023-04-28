@@ -3,8 +3,11 @@ const router = express.Router();
 
 const SorteioController = require("../app/Controllers/SorteioController");
 
+// Midleware
+const { login } = require("../app/Middlewares/Auth");
+
 // Rota pagina Sorteio
-router.get("/sorteio", SorteioController.index);
+router.get("/sorteio", login, SorteioController.index);
 
 router.post("/sorteio/nome", SorteioController.setSorteioNome);
 

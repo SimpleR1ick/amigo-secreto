@@ -12,9 +12,12 @@ const app = express();
 
 // Session
 app.use(session({
-    secret: process.env.KEY,
-    resave: false,
+    secret: "thisismysecretkey2023",
+    resave: true,
     saveUninitialized: true,
+    cookie: {
+        maxAge: 24 * 60 * 60 * 1000
+    }
 }));
 
 // View engine

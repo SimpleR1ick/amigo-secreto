@@ -1,7 +1,9 @@
 extends layouts/register
 
 block content  
-    form.container(action="/cadastro" method="post")
+    h1.text-center.mt-5 Cadastro
+
+    form.container.mt-5(action="/cadastro" method="post")
         div.row.justify-content-center 
             div.col-6
                 if message
