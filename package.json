@@ -1,24 +1,16 @@
 {
-    "name": "amigo_secreto",
-    "version": "1.0.0",
-    "description": "Projeto de sorteio para amigo X",
-    "main": "index.js",
-    "scripts": {
-        "start": "nodemon -e css,js,pug",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "bcrypt": "^5.1.0",
-        "body-parser": "^1.20.2",
-        "cookie-parser": "^1.4.6",
-        "dotenv": "^16.0.3",
-        "express": "^4.18.2",
-        "express-session": "^1.17.3",
-        "express-validator": "^6.15.0",
-        "pg": "^8.10.0",
-        "pug": "^3.0.2",
-        "sequelize": "^6.30.0"
-    }
+  "name": "amigo-secreto2",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "^4.18.2",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "^2.0.4"
+  }
 }
