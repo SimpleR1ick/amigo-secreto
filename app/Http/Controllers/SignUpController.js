@@ -1,5 +1,5 @@
-const Pessoa = require("../Models/Pessoa");
-const Crypt = require("../Utils/Crypt");
+const Pessoa = require("../../Models/Pessoa");
+const Crypt = require("../../Utils/Crypt");
 
 exports.index = (req, res, next) => {
     res.render("sign_up", {

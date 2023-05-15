@@ -1,4 +1,4 @@
-const Pessoa = require("../Models/Pessoa");
+const Pessoa = require("../../Models/Pessoa");
 
 const header = {
     text: "Novo Sorteio",
@@ -12,7 +12,7 @@ exports.index = async (req, res, next) => {
     const pessoa = await Pessoa.findById(req.session.idUsuario);
 
     // Retornando uma resposta
-    res.status(200).render("home", {
+    res.status(200).render("index", {
         title: "Sorteios",
         header,
         pessoa  

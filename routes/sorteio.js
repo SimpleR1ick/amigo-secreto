@@ -1,10 +1,10 @@
 const express = require("express");
 var router = express.Router();
 
-const SorteioController = require("../app/Controllers/SorteioController");
+const SorteioController = require("../app/Http/Controllers/SorteioController");
 
 // Midleware
-const { login } = require("../app/Middlewares/Auth");
+const { login } = require("../app/Http/Middlewares/Auth");
 
 // Rota pagina Sorteio
 router.get("/sorteio", login, SorteioController.index);

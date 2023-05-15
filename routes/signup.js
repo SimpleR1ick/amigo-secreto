@@ -1,7 +1,7 @@
 const express = require("express");
 var router = express.Router();
 
-const SignUpController = require("../app/Controllers/SignUpController");
+const SignUpController = require("../app/Http/Controllers/SignUpController");
 
 router.get("/cadastro", SignUpController.index);
 

@@ -1,4 +1,4 @@
-const Pessoa = require("../Models/Pessoa");
+const Pessoa = require("../../Models/Pessoa");
 
 const header = {
     text: "Meus sorteios",
