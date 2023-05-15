@@ -24,17 +24,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var singInRouter = require('./routes/signin');
-var singUpRouter = require('./routes/signup');
-var sorteioRouter = require('./routes/sorteio');
+/**
+ * Routes
+ */
+const routes = [
+	{ router: require('./routes/index') },
+	{ router: require('./routes/users') },
+	{ router: require('./routes/signin') },
+	{ router: require('./routes/signup') },
+	{ router: require('./routes/sorteio') },
+];
 
-app.use(indexRouter);
-app.use(usersRouter);
-app.use(singInRouter);
-app.use(singUpRouter);
-app.use(sorteioRouter);
+// Loop para adicionar as rotas ao Express
+routes.forEach(route => {
+	app.use(route.router);
+  });
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
