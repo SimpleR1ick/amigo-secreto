@@ -28,10 +28,9 @@ app.use(express.static(path.join(__dirname, '/public')));
  * Routes
  */
 const routes = [
+	{ router: require('./routes/auth') },
 	{ router: require('./routes/index') },
 	{ router: require('./routes/users') },
-	{ router: require('./routes/signin') },
-	{ router: require('./routes/signup') },
 	{ router: require('./routes/sorteio') },
 ];
 
